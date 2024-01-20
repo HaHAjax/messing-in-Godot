@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://wtyim6nmu4d3"]
+
+[ext_resource type="PackedScene" uid="uid://4ijnsgplcjgh" path="res://Objects/cube.tscn" id="2_8rwuy"]
+[ext_resource type="PackedScene" uid="uid://d4afdbgpb4y3g" path="res://Objects/sphere.tscn" id="3_5v0gk"]
+[ext_resource type="PackedScene" uid="uid://bwrcf20mph410" path="res://Objects/___car___.tscn" id="4_6h7tn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vct0e"]
+sky_top_color = Color(0.243137, 0.435294, 0.737255, 1)
+sky_horizon_color = Color(0.215686, 0.396078, 0.701961, 1)
+sky_curve = 0.0791296
+ground_bottom_color = Color(0.176471, 0.243137, 0.486275, 1)
+ground_horizon_color = Color(0.247059, 0.509804, 0.631373, 1)
+sun_angle_max = 2.05
+sun_curve = 3.5138
+
+[sub_resource type="Sky" id="Sky_r5ehv"]
+sky_material = SubResource("ProceduralSkyMaterial_vct0e")
+
+[sub_resource type="Environment" id="Environment_7571v"]
+background_mode = 2
+sky = SubResource("Sky_r5ehv")
+
+[node name="main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7571v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.25, 0.433013, 0, 0.866025, 0.5, -0.5, -0.433013, 0.75, 0, 0, 0)
+light_color = Color(1, 0.992157, 0.8, 1)
+light_energy = 1.275
+shadow_enabled = true
+
+[node name="Cube" parent="." instance=ExtResource("2_8rwuy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.787844, 1.97862, -0.127573)
+
+[node name="Cube5" parent="." instance=ExtResource("2_8rwuy")]
+transform = Transform3D(1, 0, 0, 0, 21.483, 0, 0, 0, 20.54, -10.2122, -0.0213799, -0.127573)
+
+[node name="Cube6" parent="." instance=ExtResource("2_8rwuy")]
+transform = Transform3D(1, 0, 0, 0, 12.87, 0, 0, 0, 20.54, 10.7878, 4.97862, -0.127573)
+
+[node name="Cube3" parent="." instance=ExtResource("2_8rwuy")]
+transform = Transform3D(22.7, 0, 0, 0, 22.984, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Cube4" parent="." instance=ExtResource("2_8rwuy")]
+transform = Transform3D(22.7, 0, 0, 0, 22.572, 0, 0, 0, 1, 0, 0, 99)
+
+[node name="Sphere" parent="." instance=ExtResource("3_5v0gk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2)
+
+[node name="Cube2" parent="." instance=ExtResource("2_8rwuy")]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 114, 0, -1, 43)
+
+[node name="___car___" parent="." instance=ExtResource("4_6h7tn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04008, 5.43607)
+
+[node name="Camera3D" type="Camera3D" parent="___car___"]
+transform = Transform3D(-1, 2.4869e-14, 8.74227e-08, 4.37114e-08, 0.866025, 0.5, -7.57103e-08, 0.5, -0.866025, 0, 3.95992, -3.43607)
